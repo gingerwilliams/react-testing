@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "build": "webpack --mode production --config ./webpack.config.js",
     "watch": "webpack-dev-server --mode development --config ./webpack.config.js"
   },
@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "jest": "^24.8.0",
+    "@types/jest": "^24.0.15",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "webpack": "^4.35.0",
@@ -26,6 +27,7 @@
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^24.0.15",
     "babel-loader": "^8.0.6"
   }
 }
