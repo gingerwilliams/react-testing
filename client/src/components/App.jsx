@@ -1,10 +1,17 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-    state = {
-        title: '',
-        todo: ["clean my room"],
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: '',
+            todo: ["clean my room"]
+        }
     }
+    // state = {
+    //     title: '',
+    //     todo: ["clean my room"],
+    // }
 
     // componentDidMount() {
     //     fetch('https://api.myjson.com/bins/15psn9')
@@ -49,6 +56,7 @@ class App extends Component {
                     }
                 </ul>
                 <form onSubmit={this.handleSubmit}>
+                    {/* controlled input */}
                     <input
                         type="input"
                         placeholder="add to list"
