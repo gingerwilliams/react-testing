@@ -1,11 +1,11 @@
 const path = require("path");
 
 module.exports = {
-    entry: "./client/index.jsx",
+    entry: "./src/index.jsx",
     output: {
         filename: "bundle.js",
-        publicPath: "client/dist/",
-        path: path.resolve(__dirname, "client/dist")
+        publicPath: "dist/",
+        path: path.resolve(__dirname, "dist")
     },
     devServer: {
         port: 8000,
@@ -14,7 +14,7 @@ module.exports = {
         writeToDisk: true,
         compress: true,
         historyApiFallback: true,
-        contentBase: path.join(__dirname, "client/dist")
+        contentBase: path.join(__dirname, "dist")
     },
     module: {
         rules: [
