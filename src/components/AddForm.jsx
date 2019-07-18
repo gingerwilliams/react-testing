@@ -28,8 +28,6 @@ class AddForm extends Component {
             name: ''
         });
         this.setLocalStorage(this.state.tasks);
-
-        console.log('jsx', this.state.tasks);
     }
 
     setLocalStorage = (tasks) => {
@@ -65,7 +63,6 @@ class AddForm extends Component {
                         onChange={this.handleChange}
                     />
                     <button
-                        data-testid="submit"
                         type="sumbit"
                     >
                         add
