@@ -1,5 +1,5 @@
 {
-  "name": "node-mysql",
+  "name": "localstorage-testing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,16 @@
     "build": "webpack --mode production --config ./webpack.config.js",
     "watch": "webpack-dev-server --mode development --config ./webpack.config.js"
   },
-  "keywords": [],
+  "keywords": [
+    "node",
+    "react testing library",
+    "jest",
+    "react",
+    "webpack",
+    "babel",
+    "javascript",
+    "localStorage"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
