@@ -6,10 +6,6 @@ class AddForm extends Component {
         tasks: JSON.parse(localStorage.getItem('tasks')) || [],
     }
 
-    setLocalStorage = (tasks) => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-
     handleChange = (event) => {
         this.state.name = event.currentTarget.value
 
@@ -33,10 +29,19 @@ class AddForm extends Component {
         });
         this.setLocalStorage(this.state.tasks);
 
-        // console.log('jsx', tasks);
+        console.log('jsx', this.state.tasks);
     }
 
+    setLocalStorage = (tasks) => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
 
+    clearLocalStorage = () => {
+        localStorage.clear();
+        this.setState({
+            tasks: []
+        });
+    }
 
     render() {
         const { name, tasks } = this.state;
@@ -64,6 +69,12 @@ class AddForm extends Component {
                         type="sumbit"
                     >
                         add
+                    </button>
+                    <button
+                        type="reset"
+                        onClick={this.clearLocalStorage}
+                    >
+                        clear
                     </button>
                 </form>
             </Fragment>
