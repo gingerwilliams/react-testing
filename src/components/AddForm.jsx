@@ -18,29 +18,21 @@ class AddForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //clone the original tasks
-        const tasks = [...this.state.tasks];
+        const { dataManager } = this.props;
 
-        tasks.push(this.state.name);
+        dataManager.addTasks(this.state.name);
 
         this.setState({
-            tasks: tasks,
             name: ''
         });
-        this.setLocalStorage(this.state.tasks);
-
-        console.log('jsx', this.state.tasks);
     }
 
-    setLocalStorage = (tasks) => {
-        localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
+    // setLocalStorage = (tasks) => {
+    //     localStorage.setItem('tasks', JSON.stringify(tasks));
+    // }
 
     clearLocalStorage = () => {
         localStorage.clear();
-        this.setState({
-            tasks: []
-        });
     }
 
     render() {

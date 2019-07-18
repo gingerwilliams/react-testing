@@ -1,19 +1,16 @@
 import React, { Fragment, Component } from 'react';
 import AddForm from './AddForm';
+import DataManager from './DataManager';
 
 class App extends Component {
 
-    // componentDidMount() {
-    //     fetch('https://api.myjson.com/bins/15psn9')
-    //         .then(result => result.json())
-    //         .then(rowData => this.setState({todo : rowData}))
-    // }
+    dataManager = new DataManager();
 
     render() {
         return (
             <Fragment>
                 <h1>My todo list</h1>
-                <AddForm />
+                <AddForm dataManager={this.dataManager} />
             </Fragment>
         )
     }

@@ -10,17 +10,14 @@ class DataManager {
 
     addTasks = (name) => {
         const tasks = this.getTasks();
-        tasks.push({ name: name });
+        tasks.push(name);
         localStorage.setItem('tasks', JSON.stringify(tasks));
         console.log('add a tasks', tasks);
     }
 
-    removeTasks = () => {
+    removeTasks = (name) => {
         const tasks = this.getTasks();
-        // ?
-        tasks.filter((name) => {
-            return { name: name }
-        })
+        tasks.filter(n => n !== name);
     }
 }
 
