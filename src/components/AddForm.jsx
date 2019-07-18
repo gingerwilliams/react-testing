@@ -2,41 +2,50 @@ import React, { Fragment, Component } from 'react';
 
 class AddForm extends Component {
     state = {
-        task: '',
-        todo: ["clean my room"],
+        name: '',
+        tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+    }
+
+    setLocalStorage = (tasks) => {
+        localStorage.setItem('tasks', JSON.stringify(tasks));
     }
 
     handleChange = (event) => {
-        this.state.task = event.currentTarget.value
+        this.state.name = event.currentTarget.value
 
-        const task = event.currentTarget.value;
+        const name = event.currentTarget.value;
 
         this.setState({
-            task: task
+            name: name
         })
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        //clone the original todo
-        const todo = [...this.state.todo];
+        //clone the original tasks
+        const tasks = [...this.state.tasks];
 
-        todo.push(this.state.task);
+        tasks.push(this.state.name);
 
         this.setState({
-            todo: todo,
-            task: ''
+            tasks: tasks,
+            name: ''
         });
+        this.setLocalStorage(this.state.tasks);
+
+        // console.log('jsx', tasks);
     }
 
+
+
     render() {
-        const { task, todo } = this.state;
+        const { name, tasks } = this.state;
 
         return (
             <Fragment>
                 <ul>
                     {
-                        todo.map((item, index) => (
+                        tasks.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))
                     }
@@ -45,14 +54,14 @@ class AddForm extends Component {
                     {/* controlled input */}
                     <input
                         type="input"
-                        placeholder="add task"
-                        name="task"
-                        value={task}
+                        placeholder="add a new task"
+                        name="name"
+                        value={name}
                         onChange={this.handleChange}
                     />
                     <button
+                        data-testid="submit"
                         type="sumbit"
-                        placeholder="add to list"
                     >
                         add
                     </button>
