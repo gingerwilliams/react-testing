@@ -7,8 +7,6 @@ class AddForm extends Component {
     }
 
     handleChange = (event) => {
-        this.state.name = event.currentTarget.value
-
         const name = event.currentTarget.value;
 
         this.setState({
@@ -23,16 +21,20 @@ class AddForm extends Component {
         dataManager.addTasks(this.state.name);
 
         this.setState({
-            name: ''
+            name: '',
+            tasks: JSON.parse(localStorage.getItem('tasks'))
         });
+
+        console.log(localStorage.getItem('tasks'))
+        console.log("this.state.name", this.state.name)
     }
 
-    // setLocalStorage = (tasks) => {
-    //     localStorage.setItem('tasks', JSON.stringify(tasks));
-    // }
-
     clearLocalStorage = () => {
+        console.log('clear')
         localStorage.clear();
+        this.setState({
+            tasks: []
+        });
     }
 
     render() {

@@ -13,7 +13,7 @@ it('DataManager adds new tasks', () => {
     dataManager.addTasks('Get list of Rooms');
     const tasks = JSON.parse(localStorage.getItem('tasks'));
     console.log(tasks);
-    // expect(tasks).toHaveProperty('length');
-    // expect(tasks.length).toBe(1);
-    // expect(tasks[0].name).toBe('Get list of Rooms');
+    expect(tasks).toHaveProperty('length');
+    expect(tasks.length).toBe(1);
+    expect(tasks[0]).toBe('Get list of Rooms');
 })
