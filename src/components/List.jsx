@@ -7,7 +7,7 @@ class List extends Component {
 
         return this.props.tasks.map((item, index) => {
             const key = `task-${index}`;
-            return <li data-testid={key} key={key}>{item.name}</li>
+            return <li data-testid={key} key={key}><input type="checkbox" />{item.name}</li>
         });
     }
 
@@ -21,23 +21,3 @@ List.propTypes = {
 };
 
 export default List;
-
-
-
-// import React from 'React';
-
-// const List = (props) => {
-
-
-//     return (
-//         <ul>
-//             {
-//                 props.tasks.map((item, index) => (
-//                     <li key={index}>{item}</li>
-//                 ))
-//             }
-//         </ul>
-//     );
-// }
-
-// export default List;

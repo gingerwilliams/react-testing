@@ -22,18 +22,6 @@ class AddForm extends Component {
 
         dataManager.addTasks(this.state.name);
 
-
-    }
-
-    clearLocalStorage = () => {
-        console.log('clear')
-        localStorage.clear();
-        // this.setState({
-        //     tasks: []
-        // });
-
-
-
     }
 
     render() {
@@ -45,6 +33,7 @@ class AddForm extends Component {
 
                 <form onSubmit={this.handleSubmit}>
                     {/* controlled input */}
+
                     <input
                         type="input"
                         placeholder="add a new task"
@@ -58,12 +47,7 @@ class AddForm extends Component {
                     >
                         add
                     </button>
-                    {/* <button
-                        type="reset"
-                        onClick={this.clearLocalStorage}
-                    >
-                        clear
-                    </button> */}
+
                 </form>
             </Fragment>
         );
