@@ -1,9 +1,11 @@
 import React, { Fragment, Component } from 'react';
 
+
+
 class AddForm extends Component {
     state = {
         name: '',
-        tasks: JSON.parse(localStorage.getItem('tasks')) || [],
+        // tasks: JSON.parse(localStorage.getItem('tasks')) || [],
     }
 
     handleChange = (event) => {
@@ -20,35 +22,27 @@ class AddForm extends Component {
 
         dataManager.addTasks(this.state.name);
 
-        this.setState({
-            name: '',
-            tasks: JSON.parse(localStorage.getItem('tasks'))
-        });
 
-        console.log(localStorage.getItem('tasks'))
-        console.log("this.state.name", this.state.name)
     }
 
     clearLocalStorage = () => {
         console.log('clear')
         localStorage.clear();
-        this.setState({
-            tasks: []
-        });
+        // this.setState({
+        //     tasks: []
+        // });
+
+
+
     }
 
     render() {
-        const { name, tasks } = this.state;
+        const { name } = this.state;
+
 
         return (
             <Fragment>
-                <ul>
-                    {
-                        tasks.map((item, index) => (
-                            <li key={index}>{item}</li>
-                        ))
-                    }
-                </ul>
+
                 <form onSubmit={this.handleSubmit}>
                     {/* controlled input */}
                     <input
@@ -64,12 +58,12 @@ class AddForm extends Component {
                     >
                         add
                     </button>
-                    <button
+                    {/* <button
                         type="reset"
                         onClick={this.clearLocalStorage}
                     >
                         clear
-                    </button>
+                    </button> */}
                 </form>
             </Fragment>
         );

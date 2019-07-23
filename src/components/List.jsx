@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 class List extends Component {
 
     listTasks = () => {
+
         return this.props.tasks.map((item, index) => {
             const key = `task-${index}`;
-            return <li data-testid={key} key={key}>{item}</li>
+            return <li data-testid={key} key={key}>{item.name}</li>
         });
     }
 

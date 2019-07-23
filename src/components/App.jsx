@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import List from './List';
 import AddForm from './AddForm';
 import DataManager from './DataManager';
 
@@ -9,7 +10,9 @@ class App extends Component {
     render() {
         return (
             <Fragment>
-                <h1>My todo list</h1>
+                <h3>Do some shit</h3>
+                {/* <List tasks={this.state.tasks} /> */}
+                <List tasks={this.dataManager.getTasks()} />
                 <AddForm dataManager={this.dataManager} />
             </Fragment>
         )
